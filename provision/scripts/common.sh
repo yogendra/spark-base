@@ -1,6 +1,6 @@
 #!/bin/bash
 RESOURCES_ROOT=/vagrant/provision/resources
-CACHE_ROOT=$RESOURCE_ROOT/cache
+CACHE_ROOT=$RESOURCES_ROOT/cache
 
 #epel
 EPEL_ARCHIVE=epel-release-6-8.noarch.rpm
@@ -62,8 +62,9 @@ function fileExists {
 function fetch {
 	FILE=$CACHE_ROOT/$1
 	URL=$2
-	if [ ! -e  FILE ]
+	if [ ! -e  $FILE ]
 	then
+		echo "Fetching $1 ($URL -> $FILE)"
 		curl -s -o $FILE -O -L $URL $3 $4 $5 $6 $7 $8 $9
 	fi
 }

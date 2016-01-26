@@ -2,18 +2,18 @@
 source "/vagrant/provision/scripts/common.sh"
 
 function fetchScala {
-	echo "fetching remote scala"
+	echo "fetch scala"
 	fetch $SCALA_ARCHIVE $SCALA_MIRROR_DOWNLOAD
 }
 
 function installScala {
-	echo "installing cached scala"
+	echo "install scala"
 	FILE=${RESOURCES_ROOT}/$SCALA_ARCHIVE
 	tar -xzf $FILE -C /usr/local
 }
 
 function setupScala {
-	echo "setting up scala"
+	echo "setup scala"
 	ln -s /usr/local/$SCALA_VERSION /usr/local/scala
 }
 

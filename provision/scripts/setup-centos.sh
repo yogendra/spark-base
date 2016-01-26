@@ -9,7 +9,7 @@ function disableFirewall {
 }
 
 function enableEPEL {
-	echo "Enabling EPEL repository"
+	echo "enabling EPEL repository"
 	yum -q -y install epel-release
 }
 

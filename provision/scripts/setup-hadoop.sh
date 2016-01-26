@@ -1,7 +1,7 @@
 #!/bin/bash
 source "/vagrant/provision/scripts/common.sh"
-
 function fetchHadoop {
+	echo "fetch hadoop"
 	fetch $HADOOP_ARCHIVE $HADOOP_MIRROR_DOWNLOAD
 }
 

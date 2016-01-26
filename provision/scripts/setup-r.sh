@@ -2,7 +2,7 @@
 source "/vagrant/provision/scripts/common.sh"
 
 function installR {
-	echo "Installing R "
+	echo "install R"
 	yum -q -y install R
 }
 
