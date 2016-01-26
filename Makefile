@@ -18,3 +18,6 @@ build: start-vm stop-vm package
 
 package:
 	provision/scripts/build.sh
+
+add:
+	vagrant box add --provider vmware_desktop --name yogendra/spark-base spark-base.box
