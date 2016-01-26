@@ -2,8 +2,12 @@
 # Build box for publishing
 DM=/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager
 
+
 PROJECT_ROOT=$(dirname $0)/../..
 echo PROJECT_ROOT: $PROJECT_ROOT
+
+BOX_PACKAGE=$PROJECT_ROOT/spark-base.box
+echo BOX_PACKAGE: $BOX_PACKAGE
 
 WORK_DIR=$PROJECT_ROOT/.vagrant/machines/default/vmware_fusion
 echo WORK_DIR: $WORK_DIR
@@ -27,4 +31,4 @@ echo "Compact Disk"
 "$DM" -k $DISK_FILE
 
 
-tar -czvf spark-box.box -C $BOX_DIR  Vagrantfile metadata.json *.vmx *.vmdk  *.vmsd *.nvram  *.vmxf
+tar -czvf $BOX_PACKAGE -C $BOX_DIR  --exclude '*log' --exclude '*plist' .
