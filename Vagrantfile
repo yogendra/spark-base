@@ -22,5 +22,5 @@ Vagrant.configure(2) do |config|
 	config.vm.provision "shell", path: "provision/scripts/setup-r.sh"
 	config.vm.provision "shell", path: "provision/scripts/setup-hadoop.sh"
 	config.vm.provision "shell", path: "provision/scripts/setup-spark.sh"
-  end
+
 end

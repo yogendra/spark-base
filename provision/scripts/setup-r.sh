@@ -1,5 +1,6 @@
 #!/bin/bash
-source "/vagrant/scripts/common.sh"
+source "/vagrant/provision/scripts/common.sh"
+
 function installR {
 	echo "Installing R "
 	yum -q -y install R

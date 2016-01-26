@@ -1,6 +1,5 @@
 #!/bin/bash
-source "/vagrant/scripts/common.sh"
-
+source "/vagrant/provision/scripts/common.sh"
 
 function fetchSpark {
 	echo "install spark from remote file"
