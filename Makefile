@@ -7,7 +7,8 @@ current_dir := $(notdir $(mkfile_dir))
 PROJECT_NAME := spark-base
 BOX_NAME := yogendra/${PROJECT_NAME}
 PROJECT_ROOT :=  ${mkfile_dir}
-BOX_PACKAGE := ${PROJECT_ROOT}/${PROJECT_NAME}.box
+BUILD_DIR := ${PROJECT_ROOT}/build
+BOX_PACKAGE := ${BUILD_DIR}/${PROJECT_NAME}.box
 WORK_DIR := ${PROJECT_ROOT}/.vagrant/machines/default/vmware_fusion
 BOX_ID_FILE := ${WORK_DIR}/id
 BOX_VMX := $(shell cat ${BOX_ID_FILE})
@@ -42,7 +43,7 @@ package: prepare-disk archive-box
 prepare-disk: defrag-disk compact-disk
 
 clean: destroy-vm
-	-rm ${BOX_PACKAGE}
+	-rm ${BUILD_DIR}
 
 start-vm: .env
 	-vagrant up
@@ -64,5 +65,6 @@ compact-disk: stop-vm
 	${DISK_MANAGER} -k ${DISK_PATH}
 
 archive-box: .env
+	-mkdir -f ${BUILD_DIR}
 	tar -czvf ${BOX_PACKAGE} -C ${BOX_DIR}  --exclude '*log' --exclude '*plist' --exclude "*vmem" --exclude "*lck" .
 

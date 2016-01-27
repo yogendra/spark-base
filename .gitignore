@@ -1,3 +1,4 @@
 provision/resources/cache
 .vagrant/
 spark-base.box
+provision/authorized_keys
