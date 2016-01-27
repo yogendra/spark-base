@@ -1,2 +1,3 @@
 provision/resources/cache
 .vagrant/
+spark-base.box

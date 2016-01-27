@@ -9,7 +9,7 @@ function fetchScala {
 function installScala {
 	echo "install scala"
 	FILE=$CACHE_ROOT/$SCALA_ARCHIVE
-	tar -xzf $FILE -C /usr/local
+	tar -xozf $FILE -C /usr/local
 }
 
 function setupScala {

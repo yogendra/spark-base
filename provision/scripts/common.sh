@@ -12,6 +12,7 @@ EPEL_GPG_KEY_MIRROR_DOWNLOAD=http://download.fedoraproject.org/pub/epel/RPM-GPG-
 JAVA_VERSION=jdk1.8.0_72
 JAVA_ARCHIVE=jdk-8u72-linux-x64.rpm
 JAVA_MIRROR_DOWNLOAD=http://download.oracle.com/otn-pub/java/jdk/8u72-b15/jdk-8u72-linux-x64.rpm
+JAVA_MIRROR_DOWNLOAD_COOKIE='Cookie: oraclelicense=accept-securebackup-cookie; gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk8-downloads-2133151.html;'
 
 #scala
 SCALA_VERSION=scala-2.11.7
@@ -40,6 +41,9 @@ RES_SSH_COPYID_ORIGINAL=$SSH_RES_DIR/ssh-copy-id.original
 RES_SSH_COPYID_MODIFIED=$SSH_RES_DIR/ssh-copy-id.modified
 RES_SSH_CONFIG=$SSH_RES_DIR/config
 
+#stage2
+STAGE2_ROOT=$RESOURCES_ROOT/stage2
+
 function resourceExists {
 	FILE=$RESOURCES_ROOT/$1
 	if [ -e $FILE ]
@@ -65,7 +69,7 @@ function fetch {
 	if [ ! -e  $FILE ]
 	then
 		echo "Fetching $1 ($URL -> $FILE)"
-		curl -s -o $FILE -O -L $URL $3 $4 $5 $6 $7 $8 $9
+		curl -k -s -o $FILE -O -L $URL $3 $4 $5 $6 $7 $8 $9
 	fi
 }
 

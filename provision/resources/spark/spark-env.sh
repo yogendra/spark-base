@@ -3,7 +3,7 @@
 # This file is sourced when running various Spark programs.
 # Copy it as spark-env.sh and edit that to configure Spark for your site.
 
-# Options read when launching programs locally with 
+# Options read when launching programs locally with
 # ./bin/run-example or ./bin/spark-submit
 # - HADOOP_CONF_DIR, to point Spark towards Hadoop configuration files
 # - SPARK_LOCAL_IP, to set the IP address Spark binds to on this node

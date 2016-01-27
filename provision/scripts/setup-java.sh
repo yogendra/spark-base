@@ -3,12 +3,13 @@ source "/vagrant/provision/scripts/common.sh"
 
 function fetchJava {
 	echo "fetch oracle jdk"
-	fetch $JAVA_ARCHIVE $JAVA_MIRROR_DOWNLOAD -H "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie"
+
+	fetch $JAVA_ARCHIVE $JAVA_MIRROR_DOWNLOAD -b "oraclelicense=a" -b "oraclelicense=accept-securebackup-cookie"
 }
 
 function installJava {
 	echo "install oracle jdk"
-	FILE=$CACHE_JAVA/$JAVA_ARCHIVE
+	FILE=$CACHE_ROOT/$JAVA_ARCHIVE
 	yum --nogpgcheck -y localinstall $FILE
 }
 
@@ -19,7 +20,7 @@ function setupJava {
 
 function setupJavaEnvVars {
 	echo "creating java environment variables"
-	echo export JAVA_HOME=/usr/local/java >> /etc/profile.d/java.sh
+	echo export JAVA_HOME=/usr/java/$JAVA_VERSION >> /etc/profile.d/java.sh
 	echo export PATH=\${JAVA_HOME}/bin:\${PATH} >> /etc/profile.d/java.sh
 }
 

@@ -7,7 +7,7 @@ function fetchHadoop {
 
 function installHadoop {
 	FILE=$CACHE_ROOT/$HADOOP_ARCHIVE
-	tar -xzf $FILE -C /usr/local
+	tar -xozf $FILE -C /usr/local
 	ln -s /usr/local/$HADOOP_VERSION /usr/local/hadoop
 }
 

@@ -9,7 +9,7 @@ function fetchSpark {
 function installSpark {
 	echo "install spark"
 	FILE=$CACHE_ROOT/$SPARK_ARCHIVE
-	tar -xzf $FILE -C /usr/local
+	tar -xozf $FILE -C /usr/local
 	ln -s /usr/local/$SPARK_DIR /usr/local/spark
 }
 
