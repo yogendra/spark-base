@@ -65,6 +65,6 @@ compact-disk: stop-vm
 	${DISK_MANAGER} -k ${DISK_PATH}
 
 archive-box: .env
-	-mkdir -f ${BUILD_DIR}
+	-mkdir ${BUILD_DIR}
 	tar -czvf ${BOX_PACKAGE} -C ${BOX_DIR}  --exclude '*log' --exclude '*plist' --exclude "*vmem" --exclude "*lck" .
 
