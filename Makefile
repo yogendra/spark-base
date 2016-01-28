@@ -56,7 +56,7 @@ destroy-vm: stop-vm
 
 
 add: .env
-	vagrant box add --provider vmware_desktop --name yogendra/spark-base --force spark-base.box
+	vagrant box add --clean --provider vmware_desktop --name yogendra/spark-base --force ${BOX_PACKAGE}
 
 defrag-disk: stop-vm
 	${DISK_MANAGER} -d ${DISK_PATH}

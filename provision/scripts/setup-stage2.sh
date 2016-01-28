@@ -6,9 +6,8 @@ function copyStage2Scripts {
 	mkdir -p /tmp/stage2
 	cp $STAGE2_ROOT/scripts/* /tmp/stage2
 	chown root:root /tmp/stage2/*
-	chmod 744 /tmp/stage2/*
-	mv /tmp/stage2/* /usr/local/bin
+	chmod 700 /tmp/stage2/*
+	mv /tmp/stage2/* /usr/local/sbin
 	rm -rf /tmp/stage2
 }
-
 copyStage2Scripts
